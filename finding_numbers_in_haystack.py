@@ -1,0 +1,14 @@
+import re
+file = open('regex_sum_531610.txt')
+numlist= list()
+total = 0
+for line in file:
+    line= line.rstrip()
+    stuff = re.findall('[0-9]+',line)
+    if len(stuff) ==0:continue
+    numlist.append((stuff))
+for letter in numlist:
+    for let in letter:
+        let = int(let)
+        total +=let
+print(total)
