@@ -1,0 +1,32 @@
+#Author LinkedIn.com/in/gliderfromnorth 
+#Saurav jha
+#Reference Dr Chuck py4e.com
+import urllib.request, urllib.parse, urllib.error
+import xml.etree.ElementTree as ET
+import ssl
+
+# Ignore SSL certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+status = True
+total = 0
+while status:
+    address = input('Enter location: ')
+    if len(address) < 1: continue
+    xml =urllib.request.urlopen(address, context=ctx).read()
+    print('Retrieved', len(xml), 'character')
+
+    stuff = ET.fromstring(xml)
+    lst = stuff.findall('comments/comment')
+    
+    print('User count:', len(lst))
+    for item in lst:
+        total += int(item.find('count').text)
+    status= False
+
+print(total)
+#now = input ("Enter Yes to continue and No to Exit:")
+#if now == "Yes":status = True
+#status = False

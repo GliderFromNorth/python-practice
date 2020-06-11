@@ -2,7 +2,7 @@
 #LinkedIn.com/in/gliderfromnorth
 import math
 
-n=0
+n=1
 total =0
 tax=0
 hola = True
