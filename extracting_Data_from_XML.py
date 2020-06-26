@@ -26,7 +26,10 @@ while status:
         total += int(item.find('count').text)
     status= False
 
-print(total)
-now = input ("Enter Yes to continue and No to Exit:")
-if now == "Yes":status = True
-exit()
+    print(total)
+    now = input ("Enter Yes to continue and No to Exit:")
+    if now == "Yes":
+        status = True
+        total=0
+        continue
+    exit()
